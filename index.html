@@ -80,16 +80,24 @@
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 15px;
         }
-        .grid-212 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+        .ai-grid {
+            display: flex;
+            flex-direction: column;
             gap: 15px;
         }
-        .grid-212 .card:nth-child(1) { grid-column: 1 / 3; }
-        .grid-212 .card:nth-child(2) { grid-column: 3 / 5; }
-        .grid-212 .card:nth-child(3) { grid-column: 2 / 4; }
-        .grid-212 .card:nth-child(4) { grid-column: 1 / 3; }
-        .grid-212 .card:nth-child(5) { grid-column: 3 / 5; }
+        .ai-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .ai-row .card {
+            flex: 0 0 calc(50% - 7.5px);
+            max-width: calc(50% - 7.5px);
+        }
+        .ai-row.center .card {
+            flex: 0 0 calc(50% - 7.5px);
+            max-width: calc(50% - 7.5px);
+        }
         .card {
             background: var(--card-bg);
             padding: 20px;
@@ -120,15 +128,10 @@
             .grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .grid-212 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .grid-212 .card:nth-child(1),
-            .grid-212 .card:nth-child(2),
-            .grid-212 .card:nth-child(3),
-            .grid-212 .card:nth-child(4),
-            .grid-212 .card:nth-child(5) {
-                grid-column: auto;
+            .ai-row .card,
+            .ai-row.center .card {
+                flex: 0 0 calc(50% - 7.5px);
+                max-width: calc(50% - 7.5px);
             }
         }
     </style>
@@ -147,12 +150,18 @@
 
     <div class="container">
         <div class="section-title">✨ 智能 AI 助手</div>
-        <div class="grid-212">
-            <a href="https://claude.ai/" class="card" target="_blank">Claude</a>
-            <a href="https://gemini.google.com/app" class="card" target="_blank">Gemini</a>
-            <a href="https://chat.openai.com/" class="card" target="_blank">ChatGPT</a>
-            <a href="https://arena.ai/zh" class="card" target="_blank">Arena</a>
-            <a href="https://copilot.microsoft.com/" class="card" target="_blank">Copilot</a>
+        <div class="ai-grid">
+            <div class="ai-row">
+                <a href="https://claude.ai/" class="card" target="_blank">Claude</a>
+                <a href="https://gemini.google.com/app" class="card" target="_blank">Gemini</a>
+            </div>
+            <div class="ai-row center">
+                <a href="https://chat.openai.com/" class="card" target="_blank">ChatGPT</a>
+            </div>
+            <div class="ai-row">
+                <a href="https://arena.ai/zh" class="card" target="_blank">Arena</a>
+                <a href="https://copilot.microsoft.com/" class="card" target="_blank">Copilot</a>
+            </div>
         </div>
 
         <div class="section-title">📚 小说书架</div>
